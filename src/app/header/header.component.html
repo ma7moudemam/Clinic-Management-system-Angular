@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a [routerLink]="['/']"  routerLinkActive="active" class="nav-link" >Clinic System </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/speakers']"  routerLinkActive="active">Speaker List</a>
+        </li> -->
+        <!-- *ngIf="authService.loggedIn" -->
+        <!-- <li class="nav-item">
+          <a class="nav-link " *ngIf="authService.loggedIn()" [routerLink]="['/create-speaker']"   routerLinkActive="active">Create Speaker</a>
+        </li> -->
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0 position-absolute top-0 end-0">
+          <li>
+            <a class="nav-link" *ngIf="!authService.loggedIn()" [routerLink]="['/login']"  routerLinkActive="active" >Login</a>
+          </li>
+          <li>
+            <a class="nav-link" *ngIf="!authService.loggedIn()" [routerLink]="['/register']"  routerLinkActive="active">Register</a>
+          </li>
+          <li>
+            <a class="nav-link "(click)="logout()"  *ngIf="authService.loggedIn()"style="cursor:pointer">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
