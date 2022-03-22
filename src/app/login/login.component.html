@@ -1,0 +1,35 @@
+<form #userForm="ngForm">
+    <!-- {{ userForm.value | json }} -->
+    <div class="mb-3">
+      <label class="form-label" for="inputEmail">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="userData.email"
+        placeholder="Email"
+        required 
+        #email="ngModel"
+      />
+      <!-- <small class="text-danger" *ngIf="email.errors?.['required']" >Email is required</small> -->
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="inputPassword">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        id="inputPassword"
+        [(ngModel)]="userData.password"
+        placeholder="Password"
+        required minlength="4" 
+        #password="ngModel"       
+      />
+      <!-- <small class="text-danger" *ngIf="password.errors?.['minlength'] && name.touched">password is required</small> -->
+    </div>
+
+    <button type="submit" [disabled]="userForm.form.invalid" (click)="loginUser()" class="btn">
+      Sign in
+    </button>
+  </form>
+  
