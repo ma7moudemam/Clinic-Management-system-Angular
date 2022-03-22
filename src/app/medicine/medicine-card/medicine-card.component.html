@@ -1,1 +1,20 @@
-<p>medicine-card works!</p>
+<p-card [style]="{ width: '360px' }" styleClass="p-card-shadow">
+  <ng-template pTemplate="header">
+    <h2 style="padding: 0.5em 0.75em">{{ medicine.name }}</h2>
+    <img
+      alt="Card"
+      src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/panadol/en_eg/Products/455x455-Advance-eng%20eg_new.jpg?auto=format"
+      style="width: 200px; margin-left: 80px"
+    />
+  </ng-template>
+  <p>
+    {{ medicine.describtion }}
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button
+      label="Buy Now"
+      icon="pi pi-shopping-cart"
+      class="btn-k p-button"
+    ></p-button>
+  </ng-template>
+</p-card>
