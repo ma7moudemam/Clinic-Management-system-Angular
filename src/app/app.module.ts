@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { MedicineListComponent } from './medicine/medicine-list/medicine-list.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     RegisterComponent,
     MedicineCardComponent,
+    MedicineListComponent,
   ],
   imports: [
     BrowserModule,
