@@ -1,0 +1,10 @@
+form {
+    /* margin: auto; */
+    width: 50%;
+    margin: 5% auto;
+}
+
+button {
+    color: rgb(255 93 6 / 94%) !important;
+    background-color: rgb(23, 23, 75) !important;
+}

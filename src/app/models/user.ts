@@ -11,6 +11,7 @@ export class Doctor {
 }
 
 export interface IUser {
+    _id?:Number
     name:String
     email:String
     image:String
@@ -18,4 +19,5 @@ export interface IUser {
     speciality?:String
     password:Number
     role: String
+    phoneNumber: String
 }

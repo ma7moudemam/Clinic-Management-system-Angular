@@ -6,24 +6,24 @@
           >Clinic System
         </a>
       </li>
-      <!-- <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/speakers']"  routerLinkActive="active">Speaker List</a>
-        </li> -->
-      <!-- *ngIf="authService.loggedIn" -->
-      <!-- <li class="nav-item">
-          <a class="nav-link " *ngIf="authService.loggedIn()" [routerLink]="['/create-speaker']"   routerLinkActive="active">Create Speaker</a>
-        </li> -->
-    </ul>
-    <ul class="navbar-nav my-2 my-lg-0 position-absolute top-0 end-0">
       <li>
         <a
           class="nav-link"
-          *ngIf="!authService.loggedIn()"
+          *ngIf="authService.loggedIn()"
+          [routerLink]="['/profile']"
+          routerLinkActive="active"
+          >Profile</a>
+      </li>
+      <li>
+        <a
+          class="nav-link"
+          *ngIf="authService.loggedIn()"
           [routerLink]="['/medicine']"
           routerLinkActive="active"
-          >Medicine</a
-        >
+          >Medicine</a>
       </li>
+    </ul>
+    <ul class="navbar-nav my-2 my-lg-0 position-absolute top-0 end-0">
       <li>
         <a
           class="nav-link"

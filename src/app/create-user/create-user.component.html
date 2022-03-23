@@ -1,0 +1,107 @@
+<form #userForm="ngForm">
+    <!-- {{ userForm.value | json }} -->
+    <div class="mb-3">
+        <label class="form-label" for="inputName">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          [(ngModel)]="userData.name"
+          placeholder="Enter ur Name"
+          required 
+          #name="ngModel"
+        />
+        <!-- <small class="text-danger" *ngIf="name.errors?.['required']" >name is required</small> -->
+      </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="inputEmail">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="userData.email"
+        placeholder="Email"
+        required 
+        #email="ngModel"
+      />
+      <!-- <small class="text-danger" *ngIf="email.errors?.['required']" >Email is required</small> -->
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="inputPassword">phoneNumber</label>
+        <input
+          type="text"
+          class="form-control"
+          name="phoneNumber"
+          id="inputphoneNumber"
+          [(ngModel)]="userData.phoneNumber"
+          placeholder="ur phoneNumber"
+          required minlength="4" 
+          #phoneNumber="ngModel"       
+        />
+        <!-- <small class="text-danger" *ngIf="phoneNumber.errors?.['minlength'] && name.touched">phoneNumber is required</small> -->
+    </div>
+    <div class="mb-3">
+        <div class="form-group">
+            <label for="name">Image</label>
+            <input type="file" #tname
+            class="form-control"
+            id="name" (input)="onFileChange($event)">
+        </div>
+        <!-- <small class="text-danger" *ngIf="image.errors?.['minlength'] && name.touched">image is required</small> -->
+    </div>
+    <div class="mb-3 ">
+        <label >Role</label> <br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="doctor" [(ngModel)]="userData.role" id="exampleRadios1" value="doctor">
+            <label class="form-check-label" for="exampleRadios1">
+              Doctor
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="patient" [(ngModel)]="userData.role" id="exampleRadios2" value="patient">
+            <label class="form-check-label" for="exampleRadios2">
+              Patient
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="employee" [(ngModel)]="userData.role" id="exampleRadios3" value="employee">
+            <label class="form-check-label" for="exampleRadios3">
+              Employee
+            </label>
+          </div>
+        <!-- <small class="text-danger" *ngIf="role.errors?.['minlength'] && name.touched">role is required</small> -->
+    </div>
+    <div class="mb-3" *ngIf="userData.role === 'doctor'">
+        <label class="form-label" for="inputPassword">speciality</label>
+        <input
+          type="text"
+          class="form-control"
+          name="speciality"
+          id="inputSpeciality"
+          [(ngModel)]="userData.speciality"
+          placeholder="ur speciality"
+          required minlength="4" 
+          #speciality="ngModel"       
+        />
+        <!-- <small class="text-danger" *ngIf="speciality.errors?.['minlength'] && name.touched">speciality is required</small> -->
+    </div>
+    <div class="mb-3" *ngIf="userData.role === 'doctor'">
+        <label class="form-label" for="inputHourRate">hourRate</label>
+        <input
+          type="number"
+          class="form-control"
+          name="hourRate"
+          id="inputphoneNumber"
+          [(ngModel)]="userData.hourRate"
+          placeholder="hourRate"
+          required minlength="4" 
+          #hourRate="ngModel"       
+        />
+        <!-- <small class="text-danger" *ngIf="hourRate.errors?.['minlength'] && name.touched">hourRate is required</small> -->
+    </div>
+    <button type="submit" [disabled]="userForm.form.invalid" (click)="update()" class="btn">
+       {{userId ? 'Update': 'Create'}}
+    </button>
+  </form>
+  

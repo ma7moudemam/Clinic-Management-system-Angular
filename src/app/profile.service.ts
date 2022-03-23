@@ -1,34 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-// import { User } from './_models/user';
+import { IUser } from './models/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class ProfileService {
 
-  baseurl: string = 'http://localhost:8080/';
-    
-  constructor(public http:HttpClient) { 
+  constructor(
+    public http: HttpClient,
+    @Inject('baseURL') public baseURL: string
+  ) {
+    this.baseURL += 'user/';
   }
-
-  login(user:any){
-    return this.http.post(this.baseurl+'login',user);
+  getUserById() {
+    return this.http.get<IUser>(this.baseURL+'profile');
   }
-
-  register(user:any, file: File) {
+  editUserById(user:any, file: File) {
     let form:FormData=new FormData();
     form.append("name",user.name.toString());
     form.append("email",user.email.toString());
+    form.append("phoneNumber",user.phoneNumber.toString());
     user.speciality ? form.append("speciality",user.speciality.toString()) : form.append("speciality",'');
     user.hourRate ? form.append("hourRate",user.hourRate.toString()) :form.append("hourRate",'');
-    form.append("password",user.password.toString());
     form.append("role",user.role.toString());
-    form.append("image",file,file.name);
-    return this.http.post(this.baseurl+ 'register',form);
-  }
+    if(file && file.name) {
 
-  loggedIn(){
-    return !!localStorage.getItem('token')
+      form.append("image",file, file.name);
+    }
+    return this.http.put<IUser>(this.baseURL+ user._id,form);
   }
 }

@@ -1,0 +1,26 @@
+<div class="contatiner"> 
+    <div class="profileImag">
+        <img src="{{this.baseUrl+'/images/'+user[0].image}}"/>
+    </div>
+    <div class="data">
+        <div class="personal">
+            <div class="property">
+                <p>Name</p>
+                <p>Email</p>
+                <p>Role</p>
+                <p>Tel: </p>
+                <p *ngIf="user[0].speciality">Specialicit in</p>
+                <p  *ngIf="user[0].hourRate">Hour Rate</p>
+            </div>
+            <div class="value">
+                <p>{{user[0].name}}</p>
+                <p>{{user[0].email}}</p>
+                <p>{{user[0].role}}</p>
+                <p>{{user[0].phoneNumber ? user[0].phoneNumber : '-'}} </p>
+                <p *ngIf="user[0].speciality">{{user[0].speciality}}</p>
+                <p *ngIf="user[0].hourRate">{{user[0].hourRate}}</p>
+            </div>
+        </div>
+        <div class="edit" style="cursor: pointer;" (click)="edit(user[0]._id)">Edit Profile</div>
+    </div>
+</div>

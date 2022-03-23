@@ -11,8 +11,6 @@ import { UserService } from 'src/app/user.service';
 export class DoctorListComponent implements OnInit {
 
   constructor(public userSer: UserService, public router: Router, public route: ActivatedRoute) { }
-  speakerDetailsId=0;
-  speakerEditId=0;
   user:IUser[]=[];
   load(){
     this.userSer.getAllDoctor().subscribe((a:any)=>this.user=a)

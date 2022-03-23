@@ -1,3 +1,4 @@
+import { CreateUserComponent } from './create-user/create-user.component';
 import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 import { RegisterComponent } from './register/register.component';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MedicineListComponent } from './medicine/medicine-list/medicine-list.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch:"full" },
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'doctor-list', component: DoctorListComponent},
   { path: 'medicine', component: MedicineListComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'create-user/:id', component: CreateUserComponent },
   { path: '**', component: ErrorComponent },
 ];
 
