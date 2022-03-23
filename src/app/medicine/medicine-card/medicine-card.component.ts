@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Medicine } from '../medicine';
 
 @Component({
@@ -7,7 +7,7 @@ import { Medicine } from '../medicine';
   styleUrls: ['./medicine-card.component.css'],
 })
 export class MedicineCardComponent implements OnInit {
-  medicine: Medicine = new Medicine(
+  @Input() medicine: Medicine = new Medicine(
     0,
     'Panadol',
     '20/10/2024',

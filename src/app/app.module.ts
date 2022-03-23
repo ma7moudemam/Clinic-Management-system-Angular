@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import { AuthGuard } from './auth.guard';
 import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
+import { MedicineListComponent } from './medicine/medicine-list/medicine-list.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component'
     RegisterComponent,
     MedicineCardComponent,
     DoctorListComponent,
+    MedicineListComponent,
   ],
   imports: [
     BrowserModule,

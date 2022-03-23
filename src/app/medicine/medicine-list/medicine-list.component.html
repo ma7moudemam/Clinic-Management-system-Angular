@@ -1,0 +1,15 @@
+<div
+  style="
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 0.75em;
+    padding: 1em 0;
+    flex-wrap: wrap;
+  "
+>
+  <app-medicine-card
+    *ngFor="let medicine of medicineList"
+    [medicine]="medicine"
+  ></app-medicine-card>
+</div>
