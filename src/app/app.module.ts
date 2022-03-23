@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import { AuthGuard } from './auth.guard';
+import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     RegisterComponent,
     MedicineCardComponent,
+    DoctorListComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,8 +38,10 @@ import { RegisterComponent } from './register/register.component';
     ButtonModule,
     FormsModule,
     HttpClientModule,
+    RadioButtonModule
   ],
-  providers: [{ provide: 'baseURL', useValue: 'http://localhost:8080/' }],
+  providers: [AuthGuard,
+    { provide: 'baseURL', useValue: 'http://localhost:8080/' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

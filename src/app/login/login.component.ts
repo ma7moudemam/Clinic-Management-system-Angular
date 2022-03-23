@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(public auth:AuthService, public router: Router) { }
 
   ngOnInit(): void {
-    // this.authSer
+    this.auth
   }
 
   loginUser() {

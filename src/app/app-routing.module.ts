@@ -1,3 +1,4 @@
+import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 import { RegisterComponent } from './register/register.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch:"full" },
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'doctor-list', component: DoctorListComponent},
   {path:"**",component:ErrorComponent},
 
   
