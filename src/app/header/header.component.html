@@ -18,6 +18,14 @@
         <a
           class="nav-link"
           *ngIf="authService.loggedIn()"
+          [routerLink]="['/doctor-list']"
+          routerLinkActive="active"
+          >List of Doctors</a>
+      </li>
+      <li>
+        <a
+          class="nav-link"
+          *ngIf="authService.loggedIn()"
           [routerLink]="['/medicine']"
           routerLinkActive="active"
           >Medicine</a>

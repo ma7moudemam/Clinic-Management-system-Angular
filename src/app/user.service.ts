@@ -14,15 +14,24 @@ export class UserService {
   }
   getAllDoctor(){
     let role:any = {role: 'doctor'}
-    return this.http.get<IUser[]>(this.baseURL+'role',role );
+    return this.http.post<IUser[]>(this.baseURL+'role', role );
   }
-  getDoctorById(id: number) {
+  getUserById(id: number) {
     return this.http.get<IUser>(this.baseURL + id);
   }
-  editDoctorById(id: number) {
-    return this.http.get<IUser>(this.baseURL + id);
+
+  deleteUserById(id: number) {
+    return this.http.delete<IUser>(this.baseURL + id);
   }
-  deleteDoctorById(id: number) {
-    return this.http.get<IUser>(this.baseURL + id);
+
+
+  getAllPatient() {
+    let role:any = {role: 'patient'}
+    return this.http.post<IUser[]>(this.baseURL+'role', role );
+  }
+  
+  getAllEmployee() {
+    let role:any = {role: 'employee'}
+    return this.http.post<IUser[]>(this.baseURL+'role', role );
   }
 }

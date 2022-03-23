@@ -1,1 +1,31 @@
-<p>doctor-list works!</p>
+<!-- <button (click)="load()">load</button> -->
+<table class="table" table-striped table-bordered  *ngIf="users.length>0">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>speciality</th>
+            <th>hourRate</th>
+            <th>phoneNumber</th>
+            <th>Image</th>
+            <th>Operation</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of users">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.speciality}}</td>
+            <td>{{item.hourRate}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td><img src="{{'http://localhost:8080/images/'+item.image}}" width="50" height="50"/></td>
+            <td>
+                <button class="btn btn-danger" (click)="delete(item._id)" >delete</button> |
+                <button class="btn btn-primary"(click)="editUser(item._id)">edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+

@@ -20,6 +20,7 @@ export class AuthService {
     let form:FormData=new FormData();
     form.append("name",user.name.toString());
     form.append("email",user.email.toString());
+    form.append("phoneNumber",user.phoneNumber.toString());
     user.speciality ? form.append("speciality",user.speciality.toString()) : form.append("speciality",'');
     user.hourRate ? form.append("hourRate",user.hourRate.toString()) :form.append("hourRate",'');
     form.append("password",user.password.toString());
@@ -27,8 +28,11 @@ export class AuthService {
     form.append("image",file,file.name);
     return this.http.post(this.baseurl+ 'register',form);
   }
-
   loggedIn(){
     return !!localStorage.getItem('token')
+  }
+
+  isAdmin() {
+    return localStorage.getItem('role') === 'admin'
   }
 }

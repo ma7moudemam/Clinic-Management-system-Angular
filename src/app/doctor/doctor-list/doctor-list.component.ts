@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUser } from 'src/app/models/user';
 import { UserService } from 'src/app/user.service';
@@ -11,21 +10,22 @@ import { UserService } from 'src/app/user.service';
 export class DoctorListComponent implements OnInit {
 
   constructor(public userSer: UserService, public router: Router, public route: ActivatedRoute) { }
-  user:IUser[]=[];
+  users:IUser[]=[];
   load(){
-    this.userSer.getAllDoctor().subscribe((a:any)=>this.user=a)
+    this.userSer.getAllDoctor().subscribe((a:any)=>this.users=a)
   }
-  ngOnInit(): void {
-    this.userSer.getAllDoctor().subscribe((a:any)=>this.user=a)
+  ngOnInit(): void {    
+    this.userSer.getAllDoctor().subscribe((a:any)=>this.users=a)
+    console.log(this.users); 
   }
-
-  delete(id:number) {
-    this.userSer.deleteDoctorById(id).subscribe(() => 
+  delete(id:any) {
+    this.userSer.deleteUserById(id).subscribe(() => 
        this.load()
       )
   }
-  editUser(id: number) {
-    this.router.navigate(['/create-user',  id])
+
+  editUser(id: any) {
+    this.router.navigate(['/create-user',id, {editUser: true}])
   }
 
 }

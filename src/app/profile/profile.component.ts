@@ -25,6 +25,6 @@ export class ProfileComponent implements OnInit {
 
   edit(id:any) {
     console.log(id)
-    this.router.navigate(['/create-user',  id])
+    this.router.navigate(['/create-user',  id, {editProfileL: true}])
   }
 }

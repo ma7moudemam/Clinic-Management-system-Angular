@@ -16,11 +16,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     // this.authSer
   }
-  
+
   registerUser() {
     this.auth.register(this.userData, this.file)
     .subscribe((a:any) =>  {
-      localStorage.setItem('token', (<any>a).token)
+      localStorage.setItem('token', (<any>a).token);
+      localStorage.setItem('role', (<any>a).role)
       this.router.navigate(['/'])
     })
   }
