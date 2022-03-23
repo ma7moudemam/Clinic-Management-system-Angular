@@ -1,0 +1,82 @@
+<form #medicineForm="ngForm">
+  <div class="mb-3">
+    <label class="form-label" for="inputName">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      [(ngModel)]="medicine.name"
+      placeholder="Enter medicine name"
+      required
+      #name="ngModel"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="inputExp_date">Exp_date</label>
+    <input
+      type="text"
+      class="form-control"
+      name="exp_date"
+      [(ngModel)]="medicine.exp_date"
+      #exp_date="ngModel"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="inputDescribtion">Describtion</label>
+    <input
+      type="text"
+      class="form-control"
+      name="describtion"
+      [(ngModel)]="medicine.describtion"
+      required
+      #describtion="ngModel"
+    />
+  </div>
+  <div class="mb-3">
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input
+        type="file"
+        #tname
+        class="form-control"
+        id="image"
+        name="image"
+        (input)="onFileChange($event)"
+      />
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        type="number"
+        id="price"
+        name="price"
+        [(ngModel)]="medicine.price"
+        #price="ngModel"
+        required
+      />
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        [(ngModel)]="medicine.quantity"
+        #quantity="ngModel"
+        required
+      />
+    </div>
+  </div>
+  <button
+    type="submit"
+    [disabled]="medicineForm.form.invalid"
+    (click)="addNewMedicine()"
+    class="btn"
+  >
+    Add Medicine
+  </button>
+</form>

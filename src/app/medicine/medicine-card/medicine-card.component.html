@@ -1,9 +1,13 @@
-<p-card [style]="{ width: '360px' }" styleClass="p-card-shadow">
+<p-card
+  [style]="{ width: '360px' }"
+  subheader="{{ medicine.price }} EG"
+  styleClass="p-card-shadow"
+>
   <ng-template pTemplate="header">
     <h2 style="padding: 0.5em 0.75em">{{ medicine.name }}</h2>
     <img
       alt="Card"
-      src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/panadol/en_eg/Products/455x455-Advance-eng%20eg_new.jpg?auto=format"
+      src="{{ medicine.image }}"
       style="width: 200px; margin-left: 80px"
     />
   </ng-template>

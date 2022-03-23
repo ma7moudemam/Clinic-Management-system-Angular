@@ -8,25 +8,12 @@ import { Medicine } from '../medicine';
   styleUrls: ['./medicine-list.component.css'],
 })
 export class MedicineListComponent implements OnInit {
-  medicineList: Medicine[] = [
-    new Medicine(0, 'panadol', '', 0, 'lorem'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-    new Medicine(0, 'essam', '', 0, 'lorem ipsum'),
-  ];
+  medicineList: Medicine[] = [];
   constructor(public medicineService: MedicineService) {}
 
   ngOnInit(): void {
-    // this.medicineService.getAllMedicines().subscribe({
-    //   next: (data) => (this.medicineList = data),
-    // });
+    this.medicineService.getAllMedicines().subscribe({
+      next: (data) => (this.medicineList = data),
+    });
   }
 }

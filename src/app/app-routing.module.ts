@@ -9,13 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MedicineListComponent } from './medicine/medicine-list/medicine-list.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, pathMatch:"full" },
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'doctor-list', component: DoctorListComponent},
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'doctor-list', component: DoctorListComponent },
   { path: 'medicine', component: MedicineListComponent },
+  { path: 'medicine/add', component: MedicineAddComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'create-user/:id', component: CreateUserComponent },
   { path: '**', component: ErrorComponent },

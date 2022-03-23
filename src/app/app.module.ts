@@ -21,6 +21,7 @@ import { MedicineListComponent } from './medicine/medicine-list/medicine-list.co
 import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
     MedicineListComponent,
     ProfileComponent,
     CreateUserComponent,
+    MedicineAddComponent,
   ],
   imports: [
     BrowserModule,
