@@ -12,7 +12,17 @@
     />
   </ng-template>
   <p>
-    {{ medicine.describtion }}
+    {{ smallDescribtion }}
+    <a *ngIf="isLong" #a (click)="showHide()" style="cursor: pointer">...</a>
+    <span #more style="display: none">
+      {{ restOfDescribtion }}
+    </span>
+    <a
+      #a2
+      (click)="showHide()"
+      style="display: none; cursor: pointer; color: #2196f3"
+      >Show Less</a
+    >
   </p>
   <ng-template pTemplate="footer">
     <p-button
