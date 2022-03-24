@@ -20,6 +20,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.component';
+import { ReportComponent } from './report/report.component';
+
+
+import {ChartModule} from 'primeng/chart';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {CalendarModule} from 'primeng/calendar';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -43,6 +47,7 @@ import { UserCardComponent } from './user-card/user-card.component';
     ProfileComponent,
     CreateUserComponent,
     MedicineAddComponent,
+    ReportComponent,
     NavbarComponent,
     UserCardComponent,
     DiscoverComponent,
@@ -58,6 +63,7 @@ import { UserCardComponent } from './user-card/user-card.component';
     FormsModule,
     HttpClientModule,
     RadioButtonModule,
+    ChartModule
     TabMenuModule,
     CalendarModule
   ],

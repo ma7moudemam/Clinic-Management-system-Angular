@@ -1,0 +1,49 @@
+<h1>Invoices Report</h1>
+<table class="table" table-striped table-bordered  *ngIf="invoice.length>0">
+    <thead>
+        <tr>
+            <th>_id</th>
+            <th>Price</th>
+            <th>payment</th>
+            <th>patient_id</th>
+            <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of invoice">
+            <td>{{item._id}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.payment}}</td>
+            <td>
+                <table class="table"  *ngIf="item.patient_id.length>0">
+                    <thead>
+                        <tr>
+                            <th>_id</th>
+                            <th>name</th>
+                            <th>gender</th>
+                            <th>age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let nestedItem of item.patient_id">
+                            <td>{{nestedItem._id}}</td>
+                            <td>{{nestedItem.name}}</td>
+                            <td>{{nestedItem.gender}}</td>
+                            <td>{{nestedItem.age}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>{{item.date}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h1>Invoices TotelIncome : {{inCome}}</h1>
+
+
+<!-- {{appointmentReport}} -->
+
+<!-- Chart -->
+<h1>Patient statistics</h1>
+<p-chart type="pie" [data]="piedata" width="200px"></p-chart>
