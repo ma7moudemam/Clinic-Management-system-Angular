@@ -1,0 +1,40 @@
+<p-card [header]="name" [subheader]="clinic.email" [style]="{width: '360px'}" styleClass="p-card-shadow" *ngIf="clinic">
+    <ng-template pTemplate="header">
+        <img alt="Card" class="profileImage" (click)="getProfile(clinic._id)" src="https://picsum.photos/200/100">
+    </ng-template>
+    <p>
+        <strong>Doctors:</strong><span>{{clinic.doctors.length}}</span>
+        <br>
+        <strong>Patients: </strong><span>{{clinic.patients.length}}</span>
+        <br>
+        <strong>Employees:</strong><span>{{clinic.employees.length}}</span>
+        <br>
+        <strong>Phone Numbers:</strong><span>{{clinic.phone_numbers[0]}} -- {{clinic.phone_numbers[1]}}</span>
+        <br>
+        <strong>Location: </strong><span>{{clinic.location[0]}} = {{clinic.location[1]}}</span>
+    </p>
+    <ng-template pTemplate="footer">
+        <p-button label="Show Clinic details" (click)="getProfile(clinic._id)" icon="pi pi-arrow-right"></p-button>
+    </ng-template>
+</p-card>
+
+<p-card [header]="user.name" [subheader]="user.email" [style]="{width: '360px'}" styleClass="p-card-shadow"
+    *ngIf="user">
+    <ng-template pTemplate="header">
+        <img alt="Card" class="profileImage" (click)="getProfile(user._id)" [src]="baseurl+user.image">
+    </ng-template>
+    <p>
+        <strong>email:</strong><span>{{user.email}}</span>
+        <br>
+        <strong>role:</strong><span>{{user.role}}</span>
+        <br>
+        <strong>Phone Numbers:</strong><span>{{user.phone_number}}</span>
+        <br>
+        <strong>hourRate: </strong><span>{{user.hourRate}}</span>
+        <br>
+        <strong>speciality: </strong><span>{{user.speciality}}</span>
+    </p>
+    <ng-template pTemplate="footer">
+        <p-button label="Show user details" (click)="getProfile(user._id)" icon="pi pi-arrow-right"></p-button>
+    </ng-template>
+</p-card>

@@ -24,6 +24,13 @@ import { ReportComponent } from './report/report.component';
 
 
 import {ChartModule} from 'primeng/chart';
+import {TabMenuModule} from 'primeng/tabmenu';
+import {CalendarModule} from 'primeng/calendar';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DiscoverComponent } from './discover/discover.component';
+import { DiscoverDoctorComponent } from './discover-doctor/discover-doctor.component';
+import { DiscoverEmployeeComponent } from './discover-employee/discover-employee.component';
+import { UserCardComponent } from './user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +48,12 @@ import {ChartModule} from 'primeng/chart';
     CreateUserComponent,
     MedicineAddComponent,
     ReportComponent,
+    NavbarComponent,
+    UserCardComponent,
+    DiscoverComponent,
+    DiscoverDoctorComponent,
+    DiscoverEmployeeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -51,6 +64,8 @@ import {ChartModule} from 'primeng/chart';
     HttpClientModule,
     RadioButtonModule,
     ChartModule
+    TabMenuModule,
+    CalendarModule
   ],
   providers: [
     AuthGuard,
