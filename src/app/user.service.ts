@@ -12,6 +12,8 @@ export class UserService {
   ) {
     this.baseURL += 'user/';
   }
+  user:any;
+  userRole:any;
   getAllDoctor(){
     let role:any = {role: 'doctor'}
     return this.http.post<IUser[]>(this.baseURL+'role', role );
@@ -34,4 +36,9 @@ export class UserService {
     let role:any = {role: 'employee'}
     return this.http.post<IUser[]>(this.baseURL+'role', role );
   }
+
+  updateUser(id:number, user:any){
+    return this.http.put(this.baseURL+id,user)
+  }
+
 }

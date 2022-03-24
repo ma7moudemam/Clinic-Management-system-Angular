@@ -1,0 +1,7 @@
+<div class="container mt-4 pb-3">
+    <div class="row gy-5">
+        <div class="col" *ngFor="let clinic of clinics">
+            <app-user-card [name]="clinic.name" [clinic]="clinic"></app-user-card>
+        </div>
+    </div>
+</div>

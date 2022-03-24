@@ -1,26 +1,148 @@
-<div class="contatiner"> 
-    <div class="profileImag">
-        <img src="{{this.baseUrl+'/images/'+user[0].image}}"/>
-    </div>
-    <div class="data">
-        <div class="personal">
-            <div class="property">
-                <p>Name</p>
-                <p>Email</p>
-                <p>Role</p>
-                <p>Tel: </p>
-                <p *ngIf="user[0].speciality">Specialicit in</p>
-                <p  *ngIf="user[0].hourRate">Hour Rate</p>
-            </div>
-            <div class="value">
-                <p>{{user[0].name}}</p>
-                <p>{{user[0].email}}</p>
-                <p>{{user[0].role}}</p>
-                <p>{{user[0].phoneNumber ? user[0].phoneNumber : '-'}} </p>
-                <p *ngIf="user[0].speciality">{{user[0].speciality}}</p>
-                <p *ngIf="user[0].hourRate">{{user[0].hourRate}}</p>
+<div class="container mt-4 pb-3">
+
+    <div class="row">
+        <div class="col-4">
+            <div class="account-pic">
+                <p-card [header]="profileObj.name" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+                    <ng-template pTemplate="header">
+                        <img alt="Card" [src]="baseurl+profileObj.image">
+                    </ng-template>
+                    <p>
+                        <b>{{profileObj.name}}</b>
+                        <br>
+                        <b>{{profileObj.role}}</b>
+                    </p>
+                </p-card>
             </div>
         </div>
-        <div class="edit" style="cursor: pointer;" (click)="edit(user[0]._id)">Edit Profile</div>
+        <div class="col-8">
+            <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+            <div *ngIf="details">
+                <div class="row bg-light profile-body">
+                    <div class="col-6">
+                        <h2 class="mb-2">Clinic Details</h2>
+                        <div>
+                            <h4>Email:</h4>
+                            <div>{{profileObj.email}}</div>
+                        </div>
+                        <div class="address">
+                            <h4>Location</h4>
+                            <ul *ngIf="profileObj.location">
+                                <li *ngFor="let location of profileObj.location">{{location}}</li>
+                            </ul>
+                            <p *ngIf="!profileObj.location">{{profileObj.address}}</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <h3>Doctors</h3>
+                        <ul>
+                            <!-- <li *ngFor="let doctor of profileObj.doctors">{{doctor}}</li> -->
+                            <li>doctor 1</li>
+                            <li>doctor 2</li>
+                        </ul>
+                        <h3>employees</h3>
+                        <ul>
+                            <!-- <li *ngFor="let employee of profileObj.employees">{{employee}}</li> -->
+
+                            <li>employee</li>
+                            <li>employee</li>
+                        </ul>
+                        <h3>phone number</h3>
+                        <ul *ngIf="profileObj.location">
+                            <li *ngFor="let phone_number of profileObj.phone_numbers">
+                                {{phone_number}}
+                            </li>
+                        </ul>
+                        <p *ngIf="!profileObj.location">{{profileObj.phoneNumber}}</p>
+
+                        <div *ngIf="profileObj.location"><b>Rooms: </b> {{profileObj.rooms}}</div>
+                        <div *ngIf="profileObj.location"><b>Empty Rooms: </b> {{profileObj.empty_rooms}}</div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="calendar">
+                <p-calendar [(ngModel)]="value" [readonlyInput]="true" [inline]="true" selectionMode="multiple"
+                    [showWeek]="true"></p-calendar>
+            </div>
+            <div *ngIf="edit">
+                <div *ngIf="!profileObj.location">
+                    <div class="editCU">
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedUser.name">
+                            <label for="float-input">Name</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedUser.email">
+                            <label for="float-input">Email</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedUser.role">
+                            <label for="float-input">Role</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedUser.hourRate">
+                            <label for="float-input">Hour Rate</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedUser.phoneNumber">
+                            <label for="float-input">Phone Number</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedUser.speciality">
+                            <label for="float-input">Speciality</label>
+                        </span>
+                    </div>
+                    <p-button label="Update" class="p-button-success submitUpdate"
+                        (click)="updateUser(profileObj._id,updatedUser)">
+                    </p-button>
+                </div>
+
+                <div *ngIf="profileObj.location">
+                    <div class="editCU">
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedClinic.name">
+                            <label for="float-input">Name</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedClinic.email">
+                            <label for="float-input">Email</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText
+                                [(ngModel)]="updatedClinic.new_phone_numbers">
+                            <label for="float-input">Phone Number</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedClinic.empty_rooms">
+                            <label for="float-input">Empty Rooms</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedClinic.location">
+                            <label for="float-input">Location</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedClinic.doctors">
+                            <label for="float-input">Doctor</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedClinic.patients">
+                            <label for="float-input">Patients</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedClinic.appointments">
+                            <label for="float-input">Appointments</label>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="updatedClinic.employees">
+                            <label for="float-input">Employees</label>
+                        </span>
+                    </div>
+                    <p-button label="Update" class="p-button-success submitUpdate"
+                        (click)="updateClinic(profileObj._id,updatedClinic)">
+                    </p-button>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

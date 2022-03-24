@@ -1,0 +1,33 @@
+.home-bg {
+  background-image: url("https://cdn1.internationalsos.com/-/jssmedia/Images/clinic-5050.png?w=800&h=auto&mw=800");
+  background-attachment: fixed;
+  background-repeat: none;
+  background-size: cover;
+  color: #fff;
+  height: 80vh;
+  position: relative;
+}
+.home-bg:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.home-header {
+  font-weight: 600;
+  z-index: 10;
+}
+.home-bg p {
+  z-index: 10;
+}
+.home-btn {
+  border: 1px solid #fff;
+  color: #fff;
+  z-index: 10;
+}
+.home-btn:hover {
+  background-color: #0d6efd;
+}

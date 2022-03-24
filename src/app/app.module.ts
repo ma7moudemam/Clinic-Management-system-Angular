@@ -22,6 +22,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.component';
+import {TabMenuModule} from 'primeng/tabmenu';
+import {CalendarModule} from 'primeng/calendar';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DiscoverComponent } from './discover/discover.component';
+import { DiscoverDoctorComponent } from './discover-doctor/discover-doctor.component';
+import { DiscoverEmployeeComponent } from './discover-employee/discover-employee.component';
+import { UserCardComponent } from './user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +45,12 @@ import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.compo
     ProfileComponent,
     CreateUserComponent,
     MedicineAddComponent,
+    NavbarComponent,
+    UserCardComponent,
+    DiscoverComponent,
+    DiscoverDoctorComponent,
+    DiscoverEmployeeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +60,9 @@ import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.compo
     ButtonModule,
     FormsModule,
     HttpClientModule,
-    RadioButtonModule
+    RadioButtonModule,
+    TabMenuModule,
+    CalendarModule
   ],
   providers: [AuthGuard,
     { provide: 'baseURL', useValue: 'http://localhost:8080/' },
