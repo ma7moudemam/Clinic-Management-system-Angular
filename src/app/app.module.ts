@@ -20,6 +20,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.component';
+import { ReportComponent } from './report/report.component';
+
+
+import {ChartModule} from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,7 @@ import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.compo
     ProfileComponent,
     CreateUserComponent,
     MedicineAddComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.compo
     FormsModule,
     HttpClientModule,
     RadioButtonModule,
+    ChartModule
   ],
   providers: [
     AuthGuard,

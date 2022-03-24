@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { MedicineListComponent } from './medicine/medicine-list/medicine-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MedicineAddComponent } from './medicine/medicine-add/medicine-add.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'medicine/add', component: MedicineAddComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'create-user/:id', component: CreateUserComponent },
+  { path: 'report', component: ReportComponent },
   { path: '**', component: ErrorComponent },
 ];
 
