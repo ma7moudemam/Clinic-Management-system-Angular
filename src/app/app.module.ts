@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MedicineCardComponent } from './medicine/medicine-card/medicine-card.component';
@@ -14,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import {RadioButtonModule} from 'primeng/radiobutton';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { AuthGuard } from './auth.guard';
 import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 import { MedicineListComponent } from './medicine/medicine-list/medicine-list.component';
@@ -54,7 +52,6 @@ import { UserCardComponent } from './user-card/user-card.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     CardModule,
     ButtonModule,
@@ -64,9 +61,14 @@ import { UserCardComponent } from './user-card/user-card.component';
     TabMenuModule,
     CalendarModule
   ],
-  providers: [AuthGuard,
+  providers: [
+    AuthGuard,
     { provide: 'baseURL', useValue: 'http://localhost:8080/' },
-    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
