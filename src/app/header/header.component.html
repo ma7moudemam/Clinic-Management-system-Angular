@@ -30,6 +30,14 @@
           routerLinkActive="active"
           >Medicine</a>
       </li>
+      <li>
+        <a
+          class="nav-link"
+          *ngIf="authService.loggedIn()"
+          [routerLink]="['/appointment']"
+          routerLinkActive="active"
+          >Appointment</a>
+      </li>
     </ul>
     <ul class="navbar-nav my-2 my-lg-0 position-absolute top-0 end-0">
       <li>
